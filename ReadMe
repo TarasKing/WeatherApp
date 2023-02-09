@@ -1,0 +1,10 @@
+In this project I learned how to:
+- Create a dark-mode
+- Use vector images
+- Use UITextField to get user input
+- Learn about Swift Protocols
+- Learn about the Delegate Desogn Pattern
+- Work with API by making HTTP requests with URLSession
+- Parse JSON with the native JSONDecorder
+- Use computed properties, closures and extensions
+- Use Core Location to get the GPS data.
