@@ -1,0 +1,59 @@
+{
+  "_buildCommand2" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : true,
+    "targets" : null
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "3d8e83889405234185e8a0f156f83e5f2a4417d8dc597414192f0c107c687576"
+    }
+  ],
+  "containerPath" : "/Users/Casper/Projects/IOS_development/WeatherApp/WeatherApp/WeatherApp.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "indexbuild",
+    "activeArchitecture" : "arm64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator16.0",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "arm64",
+        "x86_64"
+      ],
+      "targetArchitecture" : "arm64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/Casper/Projects/IOS_development/WeatherApp/WeatherApp/DerivedData/WeatherApp/Index.noindex/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/Casper/Projects/IOS_development/WeatherApp/WeatherApp/DerivedData/WeatherApp/Index.noindex/Build/Products",
+      "derivedDataPath" : "/Users/Casper/Projects/IOS_development/WeatherApp/WeatherApp/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/Casper/Projects/IOS_development/WeatherApp/WeatherApp/DerivedData/WeatherApp/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/Casper/Projects/IOS_development/WeatherApp/WeatherApp/DerivedData/WeatherApp/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/Casper/Projects/IOS_development/WeatherApp/WeatherApp/DerivedData/WeatherApp/Index.noindex/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO",
+          "INDEX_ARENA_INFO_REGULAR_BUILD_PRODUCTS_DIR" : "/Users/Casper/Projects/IOS_development/WeatherApp/WeatherApp/DerivedData/WeatherApp/Build/Products",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "qos" : "utility",
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}
