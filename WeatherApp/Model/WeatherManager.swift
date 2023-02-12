@@ -53,12 +53,38 @@ struct WeatherManager {
             let humidity = decodedData.main.humidity
             let speed = decodedData.wind.speed
             let id = decodedData.weather[0].id
+            getConditionName(weatherID: id)
         }catch {
             print(error)
         }
     }
     
     
-    func getConditionName(
+    func getConditionName(weatherID: Int) -> String {
+        switch weatherID {
+        case  0...232:
+            return "cloud.bolt.rain"
+        case 300...321:
+            return "cloud.rain"
+        case 500...504:
+            return "cloud.sun.rain"
+        case 511:
+            return "snowflake"
+        case 520...531:
+            return "cloud.bolt.rain"
+        case 600...622:
+            return "snowflake"
+        case 701...781:
+            return "cloud.fog"
+        case 800:
+            return "sun.max"
+        case 801:
+            return "cloud.sun"
+        case 802...804:
+            return "cloud"
+        default:
+            return "xmark.icloud"
+        }
+    }
     
 }
