@@ -8,3 +8,9 @@ In this project I learned how to:
 - Parse JSON with the native JSONDecorder
 - Use computed properties, closures and extensions
 - Use Core Location to get the GPS data.
+- Networking
+    - Create a URL
+    - Create a URLSession
+    - Give URLSession a task
+    - Start the task
+
