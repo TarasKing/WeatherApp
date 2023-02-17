@@ -10,6 +10,7 @@ import Foundation
 
 struct WeatherManager {
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid={APIKEY}&units=metric"
+//    let weatherCondition: String = "xmark.icloud"
     
     func fetchWeather(cityName: String){
         let urlString = "\(weatherURL)&q=\(cityName)"
@@ -53,38 +54,19 @@ struct WeatherManager {
             let humidity = decodedData.main.humidity
             let speed = decodedData.wind.speed
             let id = decodedData.weather[0].id
-            getConditionName(weatherID: id)
+            
+            let weatherData = WeatherModel(conditionID: id, cityName: name, cityTemperature: temp, cityPressure: pressure, cityHumidity: humidity, windSpeed: speed)
+            
+            
+
+            print(weatherData.conditionName)
+            print(weatherData.temperatureString)
         }catch {
             print(error)
         }
     }
     
     
-    func getConditionName(weatherID: Int) -> String {
-        switch weatherID {
-        case  0...232:
-            return "cloud.bolt.rain"
-        case 300...321:
-            return "cloud.rain"
-        case 500...504:
-            return "cloud.sun.rain"
-        case 511:
-            return "snowflake"
-        case 520...531:
-            return "cloud.bolt.rain"
-        case 600...622:
-            return "snowflake"
-        case 701...781:
-            return "cloud.fog"
-        case 800:
-            return "sun.max"
-        case 801:
-            return "cloud.sun"
-        case 802...804:
-            return "cloud"
-        default:
-            return "xmark.icloud"
-        }
-    }
+   
     
 }
