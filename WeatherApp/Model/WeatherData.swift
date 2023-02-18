@@ -7,21 +7,24 @@
 
 import Foundation
 
-struct WeatherData: Decodable {
+
+// Codable is used when Decodable and Encodable
+
+struct WeatherData: Codable {
     let name: String
     let main: Main
     let wind: Wind
     let weather: [Weather]
         
-    struct Main: Decodable {
+    struct Main: Codable {
         let temp: Double
         let pressure: Int
         let humidity: Int
     }
-    struct Wind: Decodable {
+    struct Wind: Codable {
         let speed: Double
     }
-    struct Weather: Decodable {
+    struct Weather: Codable {
         let id: Int
     }
 
