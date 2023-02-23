@@ -20,10 +20,20 @@ struct WeatherModel {
     
     var temperatureString: String {
 
-
         return String(format: "%.1f", cityTemperature)
 //other option is
 //        return String(floor(cityTemperature * 10)/10)
+    }
+    var pressureString: String {
+        return String(cityPressure)
+    }
+    
+    var humidityString: String {
+        return String(cityHumidity)
+    }
+    
+    var windSpeedString: String {
+        return String(format: "%.1f", windSpeed)
     }
     
     var conditionName: String{
