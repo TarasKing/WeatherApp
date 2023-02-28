@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManagerDelegate {
+class WeatherViewController: UIViewController {
     
     
     @IBOutlet weak var conditionImageView: UIImageView!
@@ -21,17 +22,33 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
     
     
     var weatherManager = WeatherManager()
+    let locationManager = CLLocationManager()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // here I turn on the permission Authorization. Also need to add a line into info file with message for the user.
 
+        // this line supposed to be before the rest lines with locationManager otherwise app is crashes
+        locationManager.delegate = self
+
+        
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        
         
         weatherManager.delegate = self
         searchTextField.delegate = self
         
-
     }
+}
 
+// MARK: - UITextFieldDelegate
+
+
+
+extension WeatherViewController: UITextFieldDelegate {
+    
     
     @IBAction func searchPressed(_ sender: UIButton) {
         searchTextField.endEditing(true)
@@ -44,7 +61,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         print(searchTextField.text!)
         return true
     }
-    
+
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if textField.text != "" {
             return true
@@ -53,7 +70,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
             return false
         }
     }
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
 
         if let city = searchTextField.text{
@@ -61,6 +78,12 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         }
         searchTextField.text = ""
     }
+    
+}
+
+// MARK: - WeatherManagerDelegate
+
+extension WeatherViewController: WeatherManagerDelegate {
     
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel){
         DispatchQueue.main.async {
@@ -70,17 +93,28 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
             self.pressureLabel.text = weather.pressureString
             self.windSpeedLabel.text = weather.windSpeedString
             self.humidityLable.text = weather.humidityString
-//            print(weather.cityPressure)
-//            print(weather.pressureString)
-//            print(weather.humidityString)
         }
-
     }
     
     func didFailWithEror(error: Error) {
         print(error)
-        
     }
-
+    
 }
+
+// MARK: - CLLocationManagerDelegate
+
+extension WeatherViewController: CLLocationManagerDelegate{
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Got location")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
+    
+}
+
 
